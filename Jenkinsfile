@@ -4,7 +4,7 @@ pipeline {
     environment {
         // ⚠️ তোমার আসল Docker Hub Username বসাও
         DOCKER_USER = 'shaffat01'
-        IMAGE_NAME = 'veranda-app'
+        IMAGE_NAME = 'ecommarce-app'
         IMAGE_TAG = "${env.BUILD_NUMBER}" // প্রতি বিল্ডে আলাদা ট্যাগ হবে (v1, v2, v3...)
     }
 
@@ -44,9 +44,9 @@ pipeline {
             steps {
                 echo '🚀 Deploying container from Docker Hub on Port 8085...'
                 sh """
-                    docker stop veranda-hub-container || true
-                    docker rm veranda-hub-container || true
-                    docker run -d --name veranda-hub-container -p 8085:80 ${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}
+                    docker stop ecommarce-hub-container || true
+                    docker rm ecommarce-hub-container || true
+                    docker run -d --name ecommarce-hub-container -p 8085:80 ${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}
                 """
             }
         }
