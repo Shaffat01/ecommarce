@@ -46,7 +46,7 @@ pipeline {
                 sh """
                     docker stop ecommarce-hub-container || true
                     docker rm ecommarce-hub-container || true
-                    docker run -d --name ecommarce-hub-container -p 8085:80 ${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}
+                    docker run -d --name ecommarce-hub-container -p 8086:80 ${DOCKER_USER}/${IMAGE_NAME}:${IMAGE_TAG}
                 """
             }
         }
